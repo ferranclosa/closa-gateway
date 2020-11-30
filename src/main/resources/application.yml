@@ -1,3 +1,39 @@
+spring:
+  cloud:
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+        add-to-simple-url-handler-mapping: false
+
+
+#
+#spring:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins:
+#              -*
+#            allowedHeaders:
+#              - *
+#            allowedMethods:
+#              - *
 eureka:
   instance:
     preferIpAddress: true
@@ -11,29 +47,13 @@ eureka:
 logging:
   level:
     root: info
-spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "http://localhost:3000"
-            allowedHeaders:
-              - content-type
-            allowedMethods:
-              - GET
-              - POST
-              - OPTIONS
+
   profiles:
   #active: dev
 management:
-  endpoint:
-    health:
-      show-details: always
+  endpoints:
+    enabled-by-default: true
+
 server:
   port: 9090
 global:
