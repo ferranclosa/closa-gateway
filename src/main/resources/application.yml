@@ -34,6 +34,9 @@ logging:
 management:
   endpoints:
     enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
 
 server:
   port: 9090
