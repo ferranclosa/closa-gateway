@@ -1,3 +1,11 @@
 spring:
   application:
     name: gateway
+  cloud:
+    discovery:
+      service-id: gateway
+      enabled: true
+    config:
+      uri: http://localhost:8071
+
+
